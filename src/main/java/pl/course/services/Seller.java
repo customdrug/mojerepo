@@ -4,9 +4,11 @@ import pl.course.model.Client;
 import pl.course.model.Product;
 
 import java.util.Scanner;
-
+// klasa Seller robi za dużo: logika koszyka płatności, interakcje z użytkownikiem (Scanner), logika UI (komunikaty) zmniejsz i wywal niepotrzebne
+// i rozdziel to ładnie 
+//możesz dodać kolejną klasję jako Cart z listą produktów, wagą, ceną
 public class Seller {
-    public int dodajDoKoszyka(Product product, int quantity) {
+    public int dodajDoKoszyka(Product product, int quantity) { // metoda robi to samo co metoda obliczCeneKoszyka
         int total = product.getPrice() * quantity;
         System.out.println("Dodałeś do kosza" + quantity + "00 gramów" + product);
         return total;
@@ -27,6 +29,7 @@ public class Seller {
         }
     }
 
+    // wydaje mi się ze tutaj totalWage zwraca coś innego niż powinno, !nie przekazuj obiektu scanner w argumencie metody!
     public boolean czyUniesie(Client client, int totalWage, Scanner scanner) {
         if (client.getMaxWageCapability() >= totalWage) {
             System.out.println("Zabierz swoje rzeczy i wyjdź krecie.");
@@ -52,7 +55,8 @@ public class Seller {
             }
         }
     }
-
+// musisz zmienic ta metode czyGratis, uprszcz ja, wywal scanner może to być jakiś string, no i polskie znaki! 
+// tutaj masz kiełbasa, a w main kielaba. Rób wszystko po ang i dobrze zawsze to przetestuj.     
     public int czyGratis(int totalPrice, Scanner scanner, Product jabłko, Product kiełbasa, Product czekolada, int totalWage) {
         if (totalPrice >= 200) {
             System.out.println("Super twoje zakupy przekroczyły 200 złotych, wybierz sobie gratisowy produkt. Wybierz poprzez wpisanie jablko/kiełbasa/czekolada");
