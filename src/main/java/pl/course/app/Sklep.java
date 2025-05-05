@@ -6,7 +6,7 @@ import pl.course.services.Seller;
 
 import java.util.Scanner;
 
-public class Sklep {
+public class Sklep { //zmien nazwę na shop albo coś takiego
     public static void main(String[] args) {
         Product kiełbasa = new Product("Kiełbasa", 100, 15, 2000);
         Product jabłko = new Product("Jabłko", 1000, 7, 1000);
@@ -21,9 +21,9 @@ public class Sklep {
 
 
         System.out.println("Witaj w sklepie. Wpisz 1, aby sprawdzić zawartość sklepu i ceny. Jeśli chcesz wyjść naciśnij 2.");
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); //daj skanner na góre i wystarczy jak tylko raz wywołasz obiek scannera 
 
-        int choice = scanner.nextInt();
+        int choice = scanner.nextInt(); //zrób z tego metodę za dużo logiki w maine
         if (choice == 1) {
             System.out.println("Nasze produkty to: " + kiełbasa);
             System.out.println(jabłko);
@@ -34,16 +34,16 @@ public class Sklep {
         }
 
 
-        Scanner choice2 = new Scanner(System.in);
-        String odpowiedz = choice2.nextLine();
+        Scanner choice2 = new Scanner(System.in); //do wywalenia nie potarzaj obiektów scannera
+        String odpowiedz = choice2.nextLine(); // nie mieszaj polskiego i ang w nazwach zmiennych itp. lepiej userResponse itd. możesz również zrobić z tego metody
         if (odpowiedz.equalsIgnoreCase("Tak")) {
             System.out.println("Jaki produkt chcesz wybrać? (jablko/czekolada/kielbasa)");
         } if (odpowiedz.equalsIgnoreCase("Nie")) {
             System.out.println("To po co nadal tu jesteś?");
         }
 
-        String wybranyprodukt = choice2.nextLine();
-        if (wybranyprodukt.equalsIgnoreCase("jabłko")) {
+        String wybranyprodukt = choice2.nextLine(); // bez polskich słow 
+        if (wybranyprodukt.equalsIgnoreCase("jabłko")) { // zrób metode i wywyołaj po prostu
             System.out.println("Ile tego chcesz w sztukach, sprzedajemy tylko po 100 gramów?");
             int ilosc = scanner.nextInt();
             scanner.nextLine();
